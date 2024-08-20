@@ -38,12 +38,12 @@ export const analyze = (deadLockLog: string): DeadLock => {
     const waitForLogStartIndex = transactionLog.indexOf(waitForLockLogStart)
     const waitForLog = transactionLog.substring(waitForLogStartIndex + waitForLockLogStart.length)
     const waitForLockMatch = waitForLog.match(
-      /.* space id \d+ page no \d+ n bits \d+ index (.*) of table `(.*)`.`(.*)` trx id \d+ lock_mode (.*)/
+      /.* space id \d+ page no \d+ n bits \d+ index (.*) of table `(.*)`.`(.*?)`[\s\S]*trx id \d+ (lock_mode|lock mode) (.*)/
     )
     if (waitForLockMatch) {
       transaction.waitLockIndex = waitForLockMatch[1]
       transaction.waitLockTable = `\`${waitForLockMatch[2]}\`.\`${waitForLockMatch[3]}\``
-      transaction.waitLockType = waitForLockMatch[4]
+      transaction.waitLockType = waitForLockMatch[5]
     }
     const holdLockStartIndex = transactionLog.indexOf(holdLockLogStart)
     if (holdLockStartIndex > -1) {
@@ -52,12 +52,12 @@ export const analyze = (deadLockLog: string): DeadLock => {
         waitForLogStartIndex + 1
       )
       const holdLockMatch = holdLockLog.match(
-        /.* space id \d+ page no \d+ n bits \d+ index (.*) of table `(.*)`.`(.*)` trx id \d+ lock_mode (.*)/
+        /.* space id \d+ page no \d+ n bits \d+ index (.*) of table `(.*)`.`(.*?)`[\s\S]*trx id \d+ (lock_mode|lock mode) (.*)/
       )
       if (holdLockMatch) {
         transaction.holdLockIndex = holdLockMatch[1]
         transaction.holdLockTable = `\`${holdLockMatch[2]}\`.\`${holdLockMatch[3]}\``
-        transaction.holdLockType = holdLockMatch[4]
+        transaction.holdLockType = holdLockMatch[5]
       }
     }
   }

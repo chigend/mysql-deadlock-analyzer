@@ -8,6 +8,9 @@
     "paths": {
       "@main/*": [
         "src/main/*"
+      ],
+      "@preload/*": [
+        "src/preload/*"
       ]
     }
   }

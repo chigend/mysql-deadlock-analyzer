@@ -1,6 +1,6 @@
 import { BrowserWindow, MenuItemConstructorOptions } from 'electron'
 
-const { Menu, app } = require('electron')
+const { Menu } = require('electron')
 
 const createMenu = (win: BrowserWindow): void => {
   const config: MenuItemConstructorOptions[] = [

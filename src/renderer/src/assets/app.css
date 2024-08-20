@@ -1,1 +1,78 @@
-body{overflow:hidden}table{border-collapse:collapse;border-spacing:0;border:1px solid #cbcbcb;display:block;overflow-x:scroll}table thead:first-child{background-color:#cbcbcb;text-align:center}table tr td{padding:5px;text-align:center;box-sizing:border-box;border:1px solid #cbcbcb;min-width:130px}table tr td[data-rollback=true]{background-color:#fab1a0;color:#0984e3}table tr td[data-scroll=true]{overflow:scroll}.container-show{opacity:1;animation:fade .5s linear forwards;z-index:100}.log-input-container-show{opacity:1;animation:logFade .5s linear forwards;z-index:100}.container{width:700px;left:50%;transform:translateX(-50%)}.container-hide{animation:fadeOut .5s linear forwards}.log-input-container-hide{animation:logFadeOut .5s linear forwards}@keyframes fade{0%{transform:translateX(1500px)}100%{transform:translateX(-50%)}}@keyframes fadeOut{0%{transform:translateX(-50%)}100%{transform:translateX(1500px)}}@keyframes logFade{0%{transform:translateX(-1500px)}}@keyframes logFadeOut{0%{transform:translateX(0)}100%{transform:translateX(-1500px)}}
+body {
+  overflow: hidden;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #cbcbcb;
+  display: block;
+  overflow-x: scroll;
+}
+table thead:first-child {
+  background-color: #cbcbcb;
+  text-align: center;
+}
+table tr td {
+  padding: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #cbcbcb;
+  min-width: 130px;
+}
+table tr td[data-rollback='true'] {
+  background-color: #fab1a0;
+  color: #0984e3;
+}
+table tr td[data-scroll='true'] {
+  overflow: scroll;
+}
+.container-show {
+  opacity: 1;
+  animation: fade 0.5s linear forwards;
+  z-index: 100;
+}
+.log-input-container-show {
+  opacity: 1;
+  animation: logFade 0.5s linear forwards;
+  z-index: 100;
+}
+.container {
+  width: 700px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.container-hide {
+  animation: fadeOut 0.5s linear forwards;
+}
+.log-input-container-hide {
+  animation: logFadeOut 0.5s linear forwards;
+}
+@keyframes fade {
+  0% {
+    transform: translateX(1500px);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(1500px);
+  }
+}
+@keyframes logFade {
+  0% {
+    transform: translateX(-1500px);
+  }
+}
+@keyframes logFadeOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1500px);
+  }
+}

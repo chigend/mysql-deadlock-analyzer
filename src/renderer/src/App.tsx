@@ -60,10 +60,11 @@ const App = memo(() => {
     if (tooltip) {
       return deadLock.transactions.map((t, i: number) => {
         const value: string = t[dataIndex] as string
+        const overflow = value && value.length > 120
         return (
           <td key={i} data-scroll={true}>
             <Tooltip trigger={'click'} title={value}>
-              <span>{value.substring(0, 120)}....</span>
+              <span>{overflow ? value.substring(0, 120) + '...' : value}</span>
             </Tooltip>
             <Copy
               onClick={() => copySql(value)}
